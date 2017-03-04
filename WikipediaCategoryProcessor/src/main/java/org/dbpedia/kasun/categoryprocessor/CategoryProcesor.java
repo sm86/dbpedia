@@ -6,7 +6,11 @@ package org.dbpedia.kasun.categoryprocessor;
 
 
 import java.io.*;
-import java.util.Scanner;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import org.apache.lucene.queryparser.classic.ParseException;
 
 /**
@@ -14,13 +18,82 @@ import org.apache.lucene.queryparser.classic.ParseException;
  * Date Author Changes Jun 28, 2013 Kasun Perera Created
  *
  */
+
 public class CategoryProcesor{
 
 	public static void main( String[] args ) throws IOException, ParseException{
 		System.out.println("helo world");
-		PageDB.getAllPages();
+		
+		
+//	This code is used to calculate the threshold value outputs in page_threshold_values.csv file.
+		FileWriter outFile = new FileWriter("C:\\Users\\Dell\\Documents\\DBpedia\\page_threshold_values.csv", true);
+	    for(int i=1; i<44000; i++){
+	    	try {
+	    		int pageCount = CategoryDB.getCategoryPageCount( i );
+				outFile.append(String.valueOf(i));
+				outFile.append(",");
+				outFile.append(String.valueOf(pageCount));
+				outFile.append("\n");
+		        System.out.println(i+"\t" +pageCount);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	   } 
+	   outFile.close();
+	    
+
+/*		
+		HashMap<String,Integer> map= PageDB.getAllPages();
+		Iterator it = map.entrySet().iterator();
+		ArrayList<Integer> list1 = null;
+	    while (it.hasNext()) {
+	        Map.Entry pair = (Map.Entry)it.next();
+//	        System.out.println(pair.getKey() + " = " + pair.getValue());	        
+	        ArrayList<Integer> cats = CategoryLinksDB.getPagesLinkedByCatName(pair.getKey().toString());
+//	        System.out.println(cats);
+	        Iterator itr=cats.iterator();  
+	        while(itr.hasNext()){
+//	        	list.add(itr.next());
+	        	int temp = Integer.parseInt(itr.next().toString());
+	        	System.out.println(temp);  
+//	        	list1.add(temp);
+	        }  
+	        it.remove(); // avoids a ConcurrentModificationException
+	    }
+	    */
+
+		
 
 
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		//        Edges edge= new Edges();
 		//        edge.findProminetNodes();
 		// CategoryLinksDB.insertParentChildModified();

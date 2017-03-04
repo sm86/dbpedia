@@ -95,12 +95,12 @@ public class PageDB {
 		String query = "SELECT page_id, page_title FROM `page` where page_namespace=0" ;
 		
 		try{
-			String pathToIndex = "C:\\Users\\Dell\\Documents\\DBpedia\\categoty_page_candidate_index";
+/*			String pathToIndex = "C:\\Users\\Dell\\Documents\\DBpedia\\categoty_page_candidate_index";
 			IndexWriter iW;
 
 			NIOFSDirectory dir = new NIOFSDirectory( new File( pathToIndex ) );
 			iW = new IndexWriter( dir, new IndexWriterConfig( Version.LUCENE_43, new WhitespaceAnalyzer( Version.LUCENE_43 ) ) );
-			
+*/			
 			ps = connection.prepareStatement( query );	
 			rs = ps.executeQuery();
 			

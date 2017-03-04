@@ -38,15 +38,8 @@ public class CategoryLinksDB
 		int pageID;
 		String leafcategory;
 
-
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		int updateQuery = 0;
-		String temp = null;
-
-
-
-
 		// System.out.println(line);
 		// System.out.println(temp);
 
@@ -54,20 +47,15 @@ public class CategoryLinksDB
 
 		// String query = "SELECT `cl_to` FROM  `category_only_page` JOIN  `categorylinks` ON  `category_only_page`.`page_id` =  `categorylinks`.`cl_from` WHERE  `page_title` =  '"+leafcategory+"'";
 
-		try
-		{
-
-
+		try{
 			File catPagesFile = new File( "F:\\Blogs\\GSOC 2013\\DbPedia\\Task 2- processing wikipedia catogories\\results_new\\leaf_categories\\page_id_page_title_leaf_categories_page_less_than_90.txt" );
-
 			String line;
 			BufferedReader fileReader;
 			fileReader = new BufferedReader( new FileReader( catPagesFile ) );
 			//FileWriter outFile;
 			// FileWriter outFileCatNotFound;
 
-			while ( ( line = fileReader.readLine() ) != null )
-			{
+			while ( ( line = fileReader.readLine() ) != null ){
 				if ( !line.isEmpty() )
 				{
 					String splitLine[] = line.split( "\t" );
@@ -335,14 +323,13 @@ public class CategoryLinksDB
 		ArrayList<Integer> listOfPages= new  ArrayList<Integer>();
 
 		String query =  "select cl_from from categorylinks where cl_to=?";
-
+		
 		try{
 			ps = connection.prepareStatement(query);
 			ps.setString( 1, catName);
-
 			rs = ps.executeQuery();
-
 			while (rs.next()){
+//				System.out.println(rs.getInt( "cl_from" ));
 				listOfPages.add(rs.getInt( "cl_from" ) );
 			}
 			connection.close();

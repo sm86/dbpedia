@@ -5,17 +5,19 @@
 package org.dbpedia.kasun.categoryprocessor;
 import java.sql.*;
 
+/**
+ * This class has Database Connection Details. 
+ * If you want to run on your local machine, just update the user name,password and database name.
+ */
 public class DB_connection {
 	public DB_connection() {};
-  //  "jdbc:mysql://localhost:3306/TweetComparison","root","nbuser"
-	//public Connection dbConnect(String db_connect_string, String db_userid, String db_password) {
-    public Connection dbConnect() {
-		
+
+	public Connection dbConnect() {	
 		Connection conn = null;
-	    try {
+		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-	         //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kasun","kasun","kasun_perrera_kk");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/wiki_categories","root","nbuser");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbpediadb","root","shacha");
+//			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306://139.59.235.4//dbpedia","root","thanks123");
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
@@ -25,6 +27,6 @@ public class DB_connection {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	    return conn;
+		return conn;
 	}
 }

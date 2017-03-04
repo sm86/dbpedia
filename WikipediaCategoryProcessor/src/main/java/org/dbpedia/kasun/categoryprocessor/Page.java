@@ -16,36 +16,36 @@ package org.dbpedia.kasun.categoryprocessor;
 public class Page
 {
 
-    private int pageId;
+	private int pageId;
 
-    private String pageName;
+	private String pageName;
 
-    private int pageNameSpace;
+	private int pageNameSpace;
 
-    public void setPageID( int pageID )
-    {
-        this.pageId = pageID;
-    }
+	public void setPageID( int pageID )
+	{
+		this.pageId = pageID;
+	}
 
-    public void setPageNameSapce( int pageNameSpace )
-    {
-        this.pageNameSpace = pageNameSpace;
-    }
+	public void setPageNameSapce( int pageNameSpace )
+	{
+		this.pageNameSpace = pageNameSpace;
+	}
 
-    public void setPageName( String pageName )
-    {
-        this.pageName = pageName;
-    }
-    
-    public int getPageID(){
-        return  this.pageId;
-    }
-    
-    public int getPageNamespace(){
-        return this.pageNameSpace;
-    }
-    
-        public String getPageName(){
-        return this.pageName;
-    }
+	public void setPageName( String pageName )
+	{
+		this.pageName = pageName;
+	}
+
+	public int getPageID(){
+		return  this.pageId;
+	}
+
+	public int getPageNamespace(){
+		return this.pageNameSpace;
+	}
+
+	public String getPageName(){
+		return this.pageName;
+	}
 }

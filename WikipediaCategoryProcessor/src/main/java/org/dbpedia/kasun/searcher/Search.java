@@ -48,8 +48,6 @@ public class Search
         NIOFSDirectory dir = new NIOFSDirectory( indexDir );
         Query query = new QueryParser( Version.LUCENE_43, filed, analyzer ).parse( q );
 
-
-
         IndexReader reader = IndexReader.open( dir );
         IndexSearcher searcher = new IndexSearcher( reader );
         TopScoreDocCollector collector = TopScoreDocCollector.create( hitsPerPage, true );
@@ -60,8 +58,7 @@ public class Search
         System.out.println( "Found " + hits.length + " hits." );
 
 
-        for ( int i = 0; i < hits.length; ++i )
-        {
+        for ( int i = 0; i < hits.length; ++i ){
             outFile = new FileWriter( "C:\\Users\\lsf\\Documents\\NetBeansProjects\\CategoryProcesor\\results_dir\\pages_page_namespace_0.txt", true );
 
             int docId = hits[i].doc;
